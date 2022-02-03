@@ -22,8 +22,6 @@ on:
         required: true
       deploy-secret-key-password:
         required: true
-      mm-webhook-url:
-        required: true
 
 jobs:
   deploy:
