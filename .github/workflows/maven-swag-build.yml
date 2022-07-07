@@ -47,8 +47,14 @@ jobs:
       - name: Validate specification
         run: npm run validate
 
-      - name: Build server jar
+      - name: Build java server jar
         run: mvn --batch-mode clean package -f pom.xml -P="server"
 
-      - name: Build client jar
+      - name: Build java client jar
         run: mvn --batch-mode clean package -f pom.xml -P="client"
+
+      - name: Build kotlin client jar
+        run: mvn --batch-mode clean package -f pom.xml -P="client-kotlin"
+
+      - name: Build kotlin server jar
+        run: mvn --batch-mode clean package -f pom.xml -P="server-kotlin"
