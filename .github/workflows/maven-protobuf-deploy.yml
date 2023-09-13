@@ -13,6 +13,15 @@ on:
         required: false
         default: "temurin"
         type: string
+    secrets:
+      server-username:
+        required: true
+      server-password:
+        required: true
+      deploy-secret-key:
+        required: true
+      deploy-secret-key-password:
+        required: true
 
 jobs:
   deploy:
