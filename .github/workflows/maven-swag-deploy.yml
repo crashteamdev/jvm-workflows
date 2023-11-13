@@ -32,7 +32,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
@@ -63,7 +63,7 @@ jobs:
           key: ${{ runner.os }}-web-${{ github.sha }}
 
   deploy-server:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     needs: [build]
     steps:
       - name: Checkout Repo
@@ -102,7 +102,7 @@ jobs:
           maven-args: '-Dcommit.number=${{ steps.commit_info.outputs.COMMIT_NUMBER }} -Drevision="1.${{ steps.commit_info.outputs.COMMIT_NUMBER }}-${{ steps.commit_info.outputs.SHA_7 }}-server" -P="server"'
 
   deploy-client:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     needs: [ build ]
     steps:
       - name: Checkout Repo
@@ -141,7 +141,7 @@ jobs:
           maven-args: '-Dcommit.number=${{ steps.commit_info.outputs.COMMIT_NUMBER }} -Drevision="1.${{ steps.commit_info.outputs.COMMIT_NUMBER }}-${{ steps.commit_info.outputs.SHA_7 }}-client" -P="client"'
 
   publish-redoc:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     needs: [ deploy-client, deploy-server ]
     steps:
       - name: Checkout Repo
