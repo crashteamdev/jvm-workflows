@@ -145,7 +145,7 @@ jobs:
     needs: [ deploy-client, deploy-server ]
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Cache build
         id: cache-build
