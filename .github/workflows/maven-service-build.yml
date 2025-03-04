@@ -41,7 +41,7 @@ jobs:
           server-password: ${{ secrets.CRASHTEAM_REPO_TOKEN }}
 
       - name: Check Maven settings
-        run: grep "<server>" ~/.m2/settings.xml || true
+        run: sed 's|<password>.*</password>|<password>***</password>|g' ~/.m2/settings.xml
 
       - shell: bash
         run: |
