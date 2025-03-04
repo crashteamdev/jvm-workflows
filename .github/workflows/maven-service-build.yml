@@ -40,6 +40,9 @@ jobs:
           server-username: vitaxa
           server-password: ${{ secrets.CRASHTEAM_REPO_TOKEN }}
 
+      - name: Check Maven settings
+        run: grep "<server>" ~/.m2/settings.xml || true
+
       - shell: bash
         run: |
           mvn -s ~/.m2/settings.xml -B clean compile package ${{ inputs.mvn-args }}
