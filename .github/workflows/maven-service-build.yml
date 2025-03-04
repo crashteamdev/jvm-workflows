@@ -6,7 +6,7 @@ on:
       java-version:
         description: 'Java version'
         required: false
-        default: "17"
+        default: "21"
         type: string
       java-distribution:
         description: 'Java distribution'
@@ -22,6 +22,14 @@ on:
         default: false
         required: false
         type: boolean
+      github-user:
+        description: 'user'
+        required: true
+        type: string
+    secrets:
+      github-pat:
+        description: 'pat'
+        required: true
 
 jobs:
   build:
@@ -42,9 +50,9 @@ jobs:
         with:
           servers: |
             [{
-                "id": "${{ secrets.CRASHTEAM_REPO_SERVER_ID }}",
-                "username": "${{ secrets.CRASHTEAM_REPO_USERNAME }}",
-                "password": "${{ secrets.CRASHTEAM_REPO_TOKEN }}"
+                "id": "github",
+                "username": "${{ inputs.github-user }}",
+                "password": "${{ secrets.github-pat }}"
             }]
 
       - name: Check Maven settings

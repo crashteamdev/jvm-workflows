@@ -6,7 +6,7 @@ on:
       java-version:
         description: 'Java version'
         required: false
-        default: "17"
+        default: "21"
         type: string
       java-distribution:
         description: 'Java distribution'
@@ -31,9 +31,20 @@ on:
         required: false
         default: './target'
         type: string
+      github-pat:
+        description: 'pat'
+        required: true
+        type: string
+      github-user:
+        description: 'user'
+        required: true
+        type: string
     secrets:
       registry-access-token:
         description: 'Access token for image registry'
+        required: true
+      github-pat:
+        description: 'pat'
         required: true
 
 jobs:
@@ -49,6 +60,16 @@ jobs:
           java-version: ${{ inputs.java-version }}
           distribution: ${{ inputs.java-distribution }}
           cache: 'maven'
+
+      - name: Set up Maven Settings for deploy
+        uses: s4u/maven-settings-action@v2.6.0
+        with:
+          servers: |
+            [{
+                "id": "github",
+                "username": "${{ inputs.github-user }}",
+                "password": "${{ secrets.github-pat }}"
+            }]
 
       - shell: bash
         run: |
