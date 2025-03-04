@@ -37,8 +37,8 @@ jobs:
           distribution: ${{ inputs.java-distribution }}
           cache: 'maven'
           server-id: github
-          server-username: ${{ github.actor }}
-          server-password: ${{ secrets.GITHUB_TOKEN }}
+          server-username: vitaxa
+          server-password: ${{ secrets.CRASHTEAM_TOKEN }}
 
       - shell: bash
         run: |
