@@ -38,7 +38,7 @@ jobs:
           cache: 'maven'
           server-id: github
           server-username: vitaxa
-          server-password: ${{ secrets.CRASHTEAM_TOKEN }}
+          server-password: ${{ secrets.CRASHTEAM_REPO_TOKEN }}
 
       - shell: bash
         run: |
