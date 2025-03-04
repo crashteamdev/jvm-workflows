@@ -26,6 +26,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-22.04
+    env:
+      vitaxa: vitaxa
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
