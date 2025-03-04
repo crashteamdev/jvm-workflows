@@ -36,9 +36,16 @@ jobs:
           java-version: ${{ inputs.java-version }}
           distribution: ${{ inputs.java-distribution }}
           cache: 'maven'
-          server-id: ${{ secrets.CRASHTEAM_REPO_SERVER_ID }}
-          server-username: ${{ secrets.CRASHTEAM_REPO_USERNAME }}
-          server-password: ${{ secrets.CRASHTEAM_REPO_TOKEN }}
+
+      - name: Set up Maven Settings for deploy
+        uses: s4u/maven-settings-action@v2.6.0
+        with:
+          servers: |
+            [{
+                "id": "${{ secrets.CRASHTEAM_REPO_SERVER_ID }}",
+                "username": "${{ secrets.CRASHTEAM_REPO_USERNAME }}",
+                "password": "${{ secrets.CRASHTEAM_REPO_TOKEN }}"
+            }]
 
       - name: Check Maven settings
         run: sed 's|<password>.*</password>|<password>***</password>|g' ~/.m2/settings.xml
