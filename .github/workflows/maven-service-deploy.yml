@@ -31,10 +31,6 @@ on:
         required: false
         default: './target'
         type: string
-      github-pat:
-        description: 'pat'
-        required: true
-        type: string
       github-user:
         description: 'user'
         required: true
