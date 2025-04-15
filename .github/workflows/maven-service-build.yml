@@ -46,7 +46,7 @@ jobs:
           cache: 'maven'
 
       - name: Set up Maven Settings for deploy
-        uses: s4u/maven-settings-action@v2.6.0
+        uses: s4u/maven-settings-action@v2.8.0
         with:
           servers: |
             [{
@@ -74,7 +74,7 @@ jobs:
           cache: 'maven'
 
       - name: Set up Maven Settings for deploy
-        uses: s4u/maven-settings-action@v2.6.0
+        uses: s4u/maven-settings-action@v2.8.0
         with:
           servers: |
             [{
