@@ -35,7 +35,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Deploy package
-        uses: crashteamdev/action-maven-deploy@v0.0.3
+        uses: crashteamdev/action-maven-deploy@v0.0.6
         with:
           jdk-version: ${{ inputs.java-version }}
           server-username: ${{ secrets.server-username }}
