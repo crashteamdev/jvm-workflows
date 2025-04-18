@@ -161,7 +161,7 @@ jobs:
           mv redoc-static.html index.html
 
       - name: Publish ReDoc on Github Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.github-token }}
           publish_dir: .
