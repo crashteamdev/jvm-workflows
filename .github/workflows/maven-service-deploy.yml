@@ -87,7 +87,7 @@ jobs:
             type=sha
 
       - name: Build and push Docker image
-        uses: docker/build-push-action@f7a2a67b4c1059633be6daa491784d8ac6a7ed6d
+        uses: docker/build-push-action@263435318d21b8e681c14492fe198d362a7d2c83
         with:
           context: ${{ inputs.dockerfile-path }}
           push: true
