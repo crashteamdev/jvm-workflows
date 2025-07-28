@@ -91,7 +91,7 @@ jobs:
 
       - name: Deploy server package
         id: deploy-server
-        uses: crashteamdev/action-maven-deploy@v0.0.3
+        uses: crashteamdev/action-maven-deploy@v0.0.6
         with:
           jdk-version: ${{ inputs.java-version }}
           java-distribution: ${{ inputs.java-distribution }}
@@ -130,7 +130,7 @@ jobs:
 
       - name: Deploy client package
         id: deploy-client
-        uses: crashteamdev/action-maven-deploy@v0.0.3
+        uses: crashteamdev/action-maven-deploy@v0.0.6
         with:
           jdk-version: ${{ inputs.java-version }}
           jdk-distribution: ${{ inputs.java-distribution }}
