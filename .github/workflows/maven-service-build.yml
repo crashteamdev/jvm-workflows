@@ -33,7 +33,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
@@ -60,7 +60,7 @@ jobs:
           mvn -s ~/.m2/settings.xml -B clean compile package ${{ inputs.mvn-args }}
 
   test-coverage:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     if: ${{ !inputs.ignore-coverage }}
     steps:
       - name: Checkout Repo
